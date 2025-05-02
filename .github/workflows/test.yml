@@ -18,5 +18,7 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SECRET_KEY }}
           port: 22
-          script: git clone https://github.com/VallabhaE/todo-Img.git 
+          script: |
+            rm -rf todo-Img
+            git clone https://github.com/VallabhaE/todo-Img.git
 
