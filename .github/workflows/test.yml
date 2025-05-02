@@ -14,7 +14,7 @@ jobs:
       - name: Execute remote SSH commands using SSH key
         uses: appleboy/ssh-action@v1
         with:
-          host: ec2-54-224-38-167.compute-1.amazonaws.com
+          host: 54.224.38.167 
           username: ubuntu
           key: ${{ secrets.SECRET_KEY }}
           port: 22
