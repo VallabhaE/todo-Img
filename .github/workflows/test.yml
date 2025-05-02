@@ -11,12 +11,12 @@ jobs:
     steps:
       - name: Checkout the code
         uses: actions/checkout@v1
+      - name: Execute remote SSH commands using SSH key
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ec2-54-224-38-167.compute-1.amazonaws.com
+          username: ubuntu
+          key: ${{ secrets.SECRET_KEY }}
+          port: 22
+          script: whoami
 
-      - name: Deploy to my EC2 instance
-        uses: easingthemes/ssh-deploy@v2.1.5
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-          SOURCE: "./"
-          REMOTE_HOST: "ec2-34-213-48-149.us-west-2.compute.amazonaws.com"
-          REMOTE_USER: "ec2-user"
-          TARGET: "/home/ec2-user/SampleExpressApp"
