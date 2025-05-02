@@ -3,7 +3,7 @@ name: Example Workflow
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   demo-job:
@@ -28,7 +28,7 @@ jobs:
       - name: Run command with secret
         shell: bash
         env:
-          SUPER_SECRET: ${{ secrets.SuperSecret }}
+          SUPER_SECRET: ${{ secrets.SECRET }}
         run: |
           example-command "$SUPER_SECRET"
 
